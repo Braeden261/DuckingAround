@@ -10,20 +10,23 @@ public class DuckSpawner : MonoBehaviour
     public float spawnTime;
     public float spawnDelay;
     public bool haltDucks;
-    public int duckChance;
+    public float luck;
+    public float timeLimit;
     public Text timerText;
 
-    private int randRoll;
+    private float timer;
+    private float superDuckChance;
+    private float randRoll;
     private Vector3 randPos;
     private float delta;
     private int deltaThreshold;
-    private float timer;
     private GameObject[] allDucks;
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = 120;
+        timer = timeLimit;
+        superDuckChance = luck;
         deltaThreshold = 50;
         InvokeRepeating("SpawnDuck", spawnTime, spawnDelay);
     }
@@ -43,6 +46,9 @@ public class DuckSpawner : MonoBehaviour
         {
             CancelDucks();
         }
+
+        if (timer > 10)
+            superDuckChance = luck + ((1 / Mathf.Pow(timer / timeLimit, 2)) / 10);
     }
 
     void SpawnDuck()
@@ -57,7 +63,6 @@ public class DuckSpawner : MonoBehaviour
         {
             //get lateral distance between new random position and duck[i] in array of all ducks
             delta = Mathf.Abs(randPos.x - allDucks[i].gameObject.transform.position.x);
-            Debug.Log("RandPos: " + randPos + ", DuckPos: " + allDucks[i].gameObject.transform.position + ", Delta: " + delta);
             //check that the distance is outside of a threshold
             if (delta < deltaThreshold)
             {
@@ -69,16 +74,16 @@ public class DuckSpawner : MonoBehaviour
                     //new delta to verify against
                     delta = Vector3.Distance(randPos, allDucks[i].gameObject.transform.position);
                 }
-
                 i = -1;
-                Debug.Log("New Duck Position: " + randPos);
             }
         }
 
         //roll chance of spawning super duck
         randRoll = Random.Range(0, 100);
+
+        Debug.Log("Super Duck Chance: " + superDuckChance);
         //spawn a duck at random position based on which type of duck has been rolled
-        if (randRoll <= duckChance)
+        if (randRoll <= superDuckChance)
         {
             Instantiate(superDuck, randPos, transform.rotation);
         }
@@ -92,12 +97,5 @@ public class DuckSpawner : MonoBehaviour
     {
         //cancel the duck spawner
         CancelInvoke("SpawnDuck");
-
-        ////get all remaining ducks and destory them
-        //remainingDucks = GameObject.FindGameObjectsWithTag("Duck");
-        //for (int i = 0; i < remainingDucks.Length; i++)
-        //{
-        //    Destroy(remainingDucks[i].gameObject);
-        //}
     }
 }
