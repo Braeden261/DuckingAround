@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D RB;
 
+    float startTime = 0.0f;
+    float holdTime = 0.75f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,19 +44,35 @@ public class PlayerController : MonoBehaviour
         {
             RB.velocity = new Vector2(0, RB.velocity.y);
         }
+
         if (Input.GetKeyDown(action))
         {
-            if (!isHoldingDuck && canPickup)
+            startTime = Time.time;
+            
+        }
+        if (Input.GetKeyUp(action))
+        {
+            if (startTime + holdTime <= Time.time)
             {
-                heldDuck = grabbableDuck;
-                heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
-                isHoldingDuck = true;
+                //Bark
+                Debug.Log("Bark");
             }
-            else if (isHoldingDuck)
+            else
             {
-                isHoldingDuck = false;
-                heldDuck.GetComponent<DuckBehaviour>().isHeld = false;
-                //heldDuck = null;
+                //No Bark
+                Debug.Log("No Bark");
+                if (!isHoldingDuck && canPickup)
+                {
+                    heldDuck = grabbableDuck;
+                    heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
+                    isHoldingDuck = true;
+                }
+                else if (isHoldingDuck)
+                {
+                    isHoldingDuck = false;
+                    heldDuck.GetComponent<DuckBehaviour>().isHeld = false;
+                    //heldDuck = null;
+                }
             }
         }
 
