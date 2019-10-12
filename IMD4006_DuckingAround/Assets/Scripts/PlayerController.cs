@@ -53,7 +53,6 @@ public class PlayerController : MonoBehaviour
             {
                 isHoldingDuck = false;
                 heldDuck.GetComponent<DuckBehaviour>().isHeld = false;
-                //heldDuck = null;
             }
         }
 
@@ -62,7 +61,7 @@ public class PlayerController : MonoBehaviour
             heldDuck.transform.position = holdPoint.position;
         }
 
-        //ignore collision with other player
+        //ignore collision with other player and baskets
         Physics2D.IgnoreLayerCollision(8, 9);
         Physics2D.IgnoreLayerCollision(8, 11);
         Physics2D.IgnoreLayerCollision(9, 11);
