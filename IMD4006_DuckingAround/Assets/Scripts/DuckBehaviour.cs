@@ -28,7 +28,8 @@ public class DuckBehaviour : MonoBehaviour
         SR = GetComponent<SpriteRenderer>();
 
         //method of reducing a duck's value over time until it despawns
-        InvokeRepeating("Spoil", 1, spoilRate);
+        if (!isSuper)
+            InvokeRepeating("Spoil", 1, spoilRate);
     }
 
     // Update is called once per frame

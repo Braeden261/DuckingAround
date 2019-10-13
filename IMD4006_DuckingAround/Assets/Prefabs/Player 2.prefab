@@ -100,7 +100,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -800856245
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9eb8fa33a7e98db41b8dffed5e671c7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -172,11 +172,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0279f305e24453e47b2b33d376f7507d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 750
-  holdPoint: {fileID: 651152069213467477}
-  numBarks: 3
-  enemyPlayer: {fileID: 7300646789061889421, guid: 8c2c6b7bb5ef1f448bbaac113345c2c1,
-    type: 3}
   left: 106
   right: 108
   action: 107
+  playerSpeed: 750
+  holdPoint: {fileID: 651152069213467477}
+  numBarks: 3
+  cooldownTime: 5
+  enemyPlayer: {fileID: 7300646789061889421, guid: 8c2c6b7bb5ef1f448bbaac113345c2c1,
+    type: 3}
+  sprites:
+  - {fileID: 21300000, guid: 9eb8fa33a7e98db41b8dffed5e671c7b, type: 3}
+  - {fileID: 21300000, guid: 53f62d359ee48664caacebf50f8f025f, type: 3}
+  - {fileID: 21300000, guid: 763f1a9474cfd8841a9f924d68e01690, type: 3}
+  - {fileID: 21300000, guid: 219259430ad837344a89c339acb69e0b, type: 3}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3507182563747568044}
   - component: {fileID: 3507182563747568047}
   - component: {fileID: 3507182563747568046}
+  - component: {fileID: 95968801007075020}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -142,19 +143,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0279f305e24453e47b2b33d376f7507d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 221d9bda83dfff449a9796df1309f219, type: 3}
-  - {fileID: 21300000, guid: bbed507f4386e01409f0b6f22f7bbb46, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  playerSpeed: 750
-  numBarks: 3
-  holdPoint: {fileID: 3507182563927743063}
-  enemyPlayer: {fileID: 4882683238663131901, guid: 4d9dbe735d882e944b3d5eb3f858fa2c,
-    type: 3}
   left: 97
   right: 100
   action: 115
+  playerSpeed: 750
+  holdPoint: {fileID: 3507182563927743063}
+  numBarks: 3
+  cooldownTime: 5
+  enemyPlayer: {fileID: 4882683238663131901, guid: 4d9dbe735d882e944b3d5eb3f858fa2c,
+    type: 3}
+--- !u!95 &95968801007075020
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3507182563747567697}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a334a4165fccc44d90cb8faa22d9557, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3507182563927743062
 GameObject:
   m_ObjectHideFlags: 0

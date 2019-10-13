@@ -46,9 +46,11 @@ MonoBehaviour:
   duck: {fileID: 3714581310411529867, guid: a0e1980dbd865014fa3b33181e3f9442, type: 3}
   superDuck: {fileID: 1458185361324541952, guid: 8ce45ce8db3e43e40af78fc36e4149d5,
     type: 3}
+  timerText: {fileID: 0}
   spawnTime: 1
   spawnDelay: 0.8
   haltDucks: 0
   luck: 16
-  timeLimit: 120
-  timerText: {fileID: 0}
+  timeLimit: 90
+  p1Basket: {fileID: 0}
+  p2Basket: {fileID: 0}
