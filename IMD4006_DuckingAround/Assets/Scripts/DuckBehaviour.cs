@@ -21,10 +21,7 @@ public class DuckBehaviour : MonoBehaviour
     {
         isHeld = false;
         life = lifespan;
-        if (isSuper)
-            floor = -263f;
-        else
-            floor = -283f;
+        floor = -283f;
 
         //method of reducing a duck's value over time until it despawns
         InvokeRepeating("Spoil", 1, spoilRate);
