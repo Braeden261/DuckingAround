@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DuckBehaviour : MonoBehaviour
 {
+    public Sprite[] sprites;
     public float fallSpeed;
     public bool isSuper;
     public int lifespan;
@@ -14,6 +15,7 @@ public class DuckBehaviour : MonoBehaviour
 
     private float floor;
     private int life;
+    private SpriteRenderer SR;
 
 
     // Start is called before the first frame update
@@ -21,7 +23,9 @@ public class DuckBehaviour : MonoBehaviour
     {
         isHeld = false;
         life = lifespan;
-        floor = -227f;
+        floor = -260f;
+
+        SR = GetComponent<SpriteRenderer>();
 
         //method of reducing a duck's value over time until it despawns
         InvokeRepeating("Spoil", 1, spoilRate);
@@ -33,6 +37,39 @@ public class DuckBehaviour : MonoBehaviour
         if (transform.position.y > floor && !isHeld)
         {
             transform.Translate(Vector3.down * Time.deltaTime * fallSpeed);
+        }
+
+        SetSprite();
+    }
+
+    void SetSprite()
+    {
+        if (transform.position.y > floor && !isHeld)
+        {
+            SR.sprite = sprites[0];
+        }
+        else if (transform.position.y <= floor)
+        {
+            transform.position = new Vector3(transform.position.x, floor, transform.position.z);
+
+            switch (life)
+            {
+                case 1:
+                    SR.sprite = sprites[5];
+                    break;
+                case 2:
+                    SR.sprite = sprites[4];
+                    break;
+                case 3:
+                    SR.sprite = sprites[3];
+                    break;
+                case 4:
+                    SR.sprite = sprites[2];
+                    break;
+                default:
+                    SR.sprite = sprites[1];
+                    break;
+            }
         }
     }
 
