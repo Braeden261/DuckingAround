@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\BasketBehaviour.cs" />
     <Compile Include="Assets\Scripts\DuckBehaviour.cs" />
     <Compile Include="Assets\Scripts\DuckSpawner.cs" />
+    <Compile Include="Assets\Scripts\endScreen.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\startGame.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

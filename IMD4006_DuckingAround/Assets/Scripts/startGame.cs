@@ -14,6 +14,9 @@ public class startGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
         if ( (Input.GetKeyDown("s")) && (Input.GetKeyDown("k")) )
         {
             SceneManager.LoadScene(sceneName: "DuckingAroundScene");

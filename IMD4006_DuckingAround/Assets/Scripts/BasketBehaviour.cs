@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BasketBehaviour : MonoBehaviour
 {
-    private int score;
+    public int score;
     public Text scoreText;
 
     // Start is called before the first frame update
