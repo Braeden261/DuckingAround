@@ -28,8 +28,7 @@ public class DuckBehaviour : MonoBehaviour
         SR = GetComponent<SpriteRenderer>();
 
         //method of reducing a duck's value over time until it despawns
-        if (!isSuper)
-            InvokeRepeating("Spoil", 1, spoilRate);
+        InvokeRepeating("Spoil", 1, spoilRate);
     }
 
     // Update is called once per frame
@@ -53,7 +52,7 @@ public class DuckBehaviour : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, floor, transform.position.z);
 
-            switch (life)
+            switch (value)
             {
                 case 1:
                     SR.sprite = sprites[5];

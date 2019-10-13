@@ -91,12 +91,15 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(action))
             {
-                if (!isHoldingDuck && canPickup)
+                if (!isHoldingDuck)
                 {
                     AN.SetBool("Pickup", true);
-                    heldDuck = grabbableDuck;
-                    heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
-                    isHoldingDuck = true;
+                    if (canPickup)
+                    {
+                        heldDuck = grabbableDuck;
+                        heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
+                        isHoldingDuck = true;
+                    }
                 }
                 else if (isHoldingDuck)
                 {
