@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BasketBehaviour : MonoBehaviour
 {
-    private int score;
+    public int score;
     public GameObject scoreText;
     public GameObject floatingTextPrefab;
 
