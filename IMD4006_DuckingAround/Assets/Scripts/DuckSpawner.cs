@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DuckSpawner : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class DuckSpawner : MonoBehaviour
     public bool haltDucks;
     public float luck;
     public float timeLimit;
+
+    public BasketBehaviour p1Basket;
+    public BasketBehaviour p2Basket;
 
     private float timer;
     private float superDuckChance;
@@ -39,7 +43,9 @@ public class DuckSpawner : MonoBehaviour
             timerText.GetComponent<TextMesh>().text = "" + Mathf.Round(timer);
         }
         else
+        {
             haltDucks = true;
+        }
 
         if (haltDucks)
         {
@@ -48,6 +54,17 @@ public class DuckSpawner : MonoBehaviour
 
         if (timer > 10)
             superDuckChance = luck + ((1 / Mathf.Pow(timer / timeLimit, 2)) / 10);
+
+        if (timer < 0) 
+        {
+            if (GameObject.FindGameObjectsWithTag("Duck").Length == 0)
+            {
+                PlayerPrefs.SetInt("p1Score", p1Basket.score);
+                PlayerPrefs.SetInt("p2Score", p2Basket.score);
+
+                SceneManager.LoadScene(sceneName: "EndScreen");
+            }
+        }
     }
 
     void SpawnDuck()
