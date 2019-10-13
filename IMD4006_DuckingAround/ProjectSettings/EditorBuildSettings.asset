@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: e6d1a93386139ff44886e243446a2b50
+  - enabled: 1
+    path: Assets/Scenes/DuckingAroundScene.unity
+    guid: 2933e3cc6dc4b214f8a8a15e550e3dad
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 7ee561efa8eeec342ba81e4fe09f4b06
   m_configObjects: {}
