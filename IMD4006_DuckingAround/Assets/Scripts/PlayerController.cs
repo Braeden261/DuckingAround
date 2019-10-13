@@ -13,12 +13,17 @@ public class PlayerController : MonoBehaviour
     private GameObject heldDuck = null;
 
     private float startTime = 0.0f;
-    private float holdTime = 1.5f;
+    private float holdTime = 2.0f;
 
     private float stunStartTime = 0.0f;
     private float stunnedTime = 2.0f;
+
+    private float cooldownStartTime = 0.0f;
+    public float cooldownTime = 5.0f;
+
     private bool stunned = false;
     public int numBarks = 3;
+
 
     public PlayerController enemyPlayer = null;
 
@@ -71,7 +76,7 @@ public class PlayerController : MonoBehaviour
                 startTime = Time.time;
             }
 
-            if ((Input.GetKey(left)) && (Input.GetKey(right)))
+            if ((Input.GetKey(left)) && (Input.GetKey(right)) && (cooldownStartTime + cooldownTime <= Time.time))
             {
                 RB.velocity = new Vector2(0, RB.velocity.y);
                 if ((startTime + holdTime <= Time.time) && (numBarks > 0))
@@ -79,6 +84,7 @@ public class PlayerController : MonoBehaviour
                     Debug.Log("Bark");
                     enemyPlayer.Stun();
                     numBarks--;
+                    cooldownStartTime = Time.time;
                 }
             }
 
