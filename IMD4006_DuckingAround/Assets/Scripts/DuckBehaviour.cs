@@ -52,7 +52,7 @@ public class DuckBehaviour : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, floor, transform.position.z);
 
-            switch (life)
+            switch (value)
             {
                 case 1:
                     SR.sprite = sprites[5];

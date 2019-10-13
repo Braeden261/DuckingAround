@@ -4,42 +4,39 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //variables
-    public float playerSpeed;
-    private bool isHoldingDuck;
-    private bool canPickup;
-    public Transform holdPoint;
-    private GameObject grabbableDuck = null;
-    private GameObject heldDuck = null;
-
-    private float startTime = 0.0f;
-    private float holdTime = 2.0f;
-
-    private float stunStartTime = 0.0f;
-    private float stunnedTime = 2.0f;
-
-    private float cooldownStartTime = 0.0f;
-    public float cooldownTime = 5.0f;
-
-    private bool stunned = false;
-    public int numBarks = 3;
-
-
-    public PlayerController enemyPlayer = null;
-
     //adding custom controls for each player
     public KeyCode left;
     public KeyCode right;
     public KeyCode action;
 
+    public float playerSpeed;
+    public Transform holdPoint;
+    public int numBarks = 3;
+    public float cooldownTime = 5.0f;
+    public PlayerController enemyPlayer = null;
+
+    private bool isHoldingDuck;
+    private bool canPickup;
+    private GameObject grabbableDuck = null;
+    private GameObject heldDuck = null;
+
+    private float startTime = 0.0f;
+    private float holdTime = 2.0f;
+    private float stunStartTime = 0.0f;
+    private float stunnedTime = 2.0f;
+    private float cooldownStartTime = 0.0f;
+    private bool stunned = false;
+
     private Rigidbody2D RB;
     private SpriteRenderer SR;
+    private Animator AN;
 
     // Start is called before the first frame update
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();
         SR = GetComponent<SpriteRenderer>();
+        AN = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -60,16 +57,19 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(left))
             {
                 RB.velocity = new Vector2(-playerSpeed, RB.velocity.y);
+                AN.SetFloat("Speed", playerSpeed);
                 SR.flipX = true;
             }
             if (Input.GetKey(right))
             {
                 RB.velocity = new Vector2(playerSpeed, RB.velocity.y);
+                AN.SetFloat("Speed", playerSpeed);
                 SR.flipX = false;
             }
             if (!Input.GetKey(right) && !Input.GetKey(left))
             {
                 RB.velocity = new Vector2(0, RB.velocity.y);
+                AN.SetFloat("Speed", 0);
             }
             if (Input.GetKeyDown(left) && Input.GetKeyDown(right))
             {
@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
             if ((Input.GetKey(left)) && (Input.GetKey(right)) && (cooldownStartTime + cooldownTime <= Time.time))
             {
                 RB.velocity = new Vector2(0, RB.velocity.y);
+                AN.SetFloat("Speed", 0);
                 if ((startTime + holdTime <= Time.time) && (numBarks > 0))
                 {
                     Debug.Log("Bark");
@@ -90,11 +91,15 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(action))
             {
-                if (!isHoldingDuck && canPickup)
+                if (!isHoldingDuck)
                 {
-                    heldDuck = grabbableDuck;
-                    heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
-                    isHoldingDuck = true;
+                    AN.SetBool("Pickup", true);
+                    if (canPickup)
+                    {
+                        heldDuck = grabbableDuck;
+                        heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
+                        isHoldingDuck = true;
+                    }
                 }
                 else if (isHoldingDuck)
                 {
@@ -102,8 +107,10 @@ public class PlayerController : MonoBehaviour
                     heldDuck.GetComponent<DuckBehaviour>().isHeld = false;
                     //heldDuck = null;
                 }
-
             }
+
+            if (Input.GetKeyUp(action))
+                AN.SetBool("Pickup", false);
 
             if (isHoldingDuck)
             {
@@ -115,7 +122,6 @@ public class PlayerController : MonoBehaviour
             Physics2D.IgnoreLayerCollision(8, 11);
             Physics2D.IgnoreLayerCollision(9, 11);
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
