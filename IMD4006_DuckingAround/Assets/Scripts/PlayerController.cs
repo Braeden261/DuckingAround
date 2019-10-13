@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private GameObject heldDuck = null;
 
     private float startTime = 0.0f;
-    private float holdTime = 1.0f;
+    private float holdTime = 1.5f;
 
     private float stunStartTime = 0.0f;
     private float stunnedTime = 2.0f;
@@ -64,38 +64,37 @@ public class PlayerController : MonoBehaviour
             {
                 RB.velocity = new Vector2(0, RB.velocity.y);
             }
-
-            if (Input.GetKeyDown(action))
+            if (Input.GetKeyDown(left) && Input.GetKeyDown(right))
             {
                 startTime = Time.time;
-
             }
-            if (Input.GetKeyUp(action))
+
+            if ( (Input.GetKey(left)) && (Input.GetKey(right)) )
             {
-                if ((startTime + holdTime <= Time.time) && (!isHoldingDuck) && (numBarks > 0))
+                RB.velocity = new Vector2(0, RB.velocity.y);
+                if ((startTime + holdTime <= Time.time) && (numBarks > 0))
                 {
-                    //Bark
                     Debug.Log("Bark");
                     enemyPlayer.Stun();
                     numBarks--;
                 }
-                else
+            }
+
+            if (Input.GetKeyDown(action))
+            {
+                if (!isHoldingDuck && canPickup)
                 {
-                    //No Bark
-                    Debug.Log("No Bark");
-                    if (!isHoldingDuck && canPickup)
-                    {
-                        heldDuck = grabbableDuck;
-                        heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
-                        isHoldingDuck = true;
-                    }
-                    else if (isHoldingDuck)
-                    {
-                        isHoldingDuck = false;
-                        heldDuck.GetComponent<DuckBehaviour>().isHeld = false;
-                        //heldDuck = null;
-                    }
+                    heldDuck = grabbableDuck;
+                    heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
+                    isHoldingDuck = true;
                 }
+                else if (isHoldingDuck)
+                {
+                    isHoldingDuck = false;
+                    heldDuck.GetComponent<DuckBehaviour>().isHeld = false;
+                    //heldDuck = null;
+                }
+
             }
 
             if (isHoldingDuck)
