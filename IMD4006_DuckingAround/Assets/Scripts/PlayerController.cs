@@ -18,8 +18,9 @@ public class PlayerController : MonoBehaviour
     private float stunStartTime = 0.0f;
     private float stunnedTime = 2.0f;
     private bool stunned = false;
+    public int numBarks = 3;
 
-    private GameObject enemyPlayer = null;
+    public PlayerController enemyPlayer = null;
 
     //adding custom controls for each player
     public KeyCode left;
@@ -37,14 +38,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        if (!stunned)
+        if (stunned)
         {
+
             if (stunStartTime + stunnedTime <= Time.time)
             {
                 stunned = false;
+                playerSpeed = 750;
             }
+        }
+
+        if (!stunned)
+        {
 
             //handling player movement on key press
             if (Input.GetKey(left))
@@ -67,10 +72,12 @@ public class PlayerController : MonoBehaviour
             }
             if (Input.GetKeyUp(action))
             {
-                if (startTime + holdTime <= Time.time)
+                if ((startTime + holdTime <= Time.time) && (!isHoldingDuck) && (numBarks > 0))
                 {
                     //Bark
                     Debug.Log("Bark");
+                    enemyPlayer.Stun();
+                    numBarks--;
                 }
                 else
                 {
@@ -116,10 +123,11 @@ public class PlayerController : MonoBehaviour
         grabbableDuck = null;
     }
 
-    void Stun()
+    public void Stun()
     {
         if (isHoldingDuck)
         {
+            playerSpeed = 0;
             isHoldingDuck = false;
             heldDuck.GetComponent<DuckBehaviour>().isHeld = false;
             //heldDuck = null;
