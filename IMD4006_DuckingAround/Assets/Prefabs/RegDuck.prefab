@@ -119,6 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658304f1cbb11184799da781ef8635c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 253e3d57b9f51d842a4b5bc61c27f53b, type: 3}
+  - {fileID: 21300000, guid: fed17b2f00bf179409b0d8f06f1de4a7, type: 3}
+  - {fileID: 21300000, guid: 83e3cde846e27844a9fd7ce0d558a674, type: 3}
+  - {fileID: 21300000, guid: 785ed3d1690fcf2459c5735409d1f812, type: 3}
+  - {fileID: 21300000, guid: e99985e0aee698649b627b062f1e74bc, type: 3}
+  - {fileID: 21300000, guid: 661913dedb7c6694c997a3d055f7a20b, type: 3}
   fallSpeed: 450
   isSuper: 0
   lifespan: 8
