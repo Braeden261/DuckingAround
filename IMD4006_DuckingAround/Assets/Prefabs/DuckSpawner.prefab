@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17dc0b2b69d21e141aeb3d0af45e69be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duck: {fileID: 43090736359795347, guid: a0e1980dbd865014fa3b33181e3f9442, type: 3}
-  superDuck: {fileID: 2129556329221383295, guid: 8ce45ce8db3e43e40af78fc36e4149d5,
+  duck: {fileID: 3714581310411529867, guid: a0e1980dbd865014fa3b33181e3f9442, type: 3}
+  superDuck: {fileID: 1458185361324541952, guid: 8ce45ce8db3e43e40af78fc36e4149d5,
     type: 3}
   spawnTime: 1
   spawnDelay: 0.8

@@ -7,12 +7,12 @@ public class DuckSpawner : MonoBehaviour
 {
     public GameObject duck;
     public GameObject superDuck;
+    public GameObject timerText;
     public float spawnTime;
     public float spawnDelay;
     public bool haltDucks;
     public float luck;
     public float timeLimit;
-    public Text timerText;
 
     private float timer;
     private float superDuckChance;
@@ -36,7 +36,7 @@ public class DuckSpawner : MonoBehaviour
         {
             //decrement timer
             timer -= Time.deltaTime;
-            timerText.text = "Duck Season Ends In: \n" + Mathf.Round(timer);
+            timerText.GetComponent<TextMesh>().text = "" + Mathf.Round(timer);
         }
         else
             haltDucks = true;
