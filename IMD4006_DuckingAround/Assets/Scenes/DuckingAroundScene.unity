@@ -1372,6 +1372,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 651152069214312289, guid: 4d9dbe735d882e944b3d5eb3f858fa2c,
+        type: 3}
+      propertyPath: enemyPlayer
+      value: 
+      objectReference: {fileID: 1767514368}
     - target: {fileID: 651152069214312301, guid: 4d9dbe735d882e944b3d5eb3f858fa2c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1427,11 +1432,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 651152069214312289, guid: 4d9dbe735d882e944b3d5eb3f858fa2c,
+    - target: {fileID: 651152069214312290, guid: 4d9dbe735d882e944b3d5eb3f858fa2c,
         type: 3}
-      propertyPath: enemyPlayer
-      value: 
-      objectReference: {fileID: 1767514368}
+      propertyPath: m_SortingLayerID
+      value: -2028187863
+      objectReference: {fileID: 0}
+    - target: {fileID: 651152069214312290, guid: 4d9dbe735d882e944b3d5eb3f858fa2c,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d9dbe735d882e944b3d5eb3f858fa2c, type: 3}
 --- !u!1001 &3507182564169496750
@@ -1446,6 +1456,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3507182563747568046, guid: 8c2c6b7bb5ef1f448bbaac113345c2c1,
+        type: 3}
+      propertyPath: enemyPlayer
+      value: 
+      objectReference: {fileID: 1658148292}
     - target: {fileID: 3507182563747568042, guid: 8c2c6b7bb5ef1f448bbaac113345c2c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1501,11 +1516,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3507182563747568046, guid: 8c2c6b7bb5ef1f448bbaac113345c2c1,
+    - target: {fileID: 3507182563747568045, guid: 8c2c6b7bb5ef1f448bbaac113345c2c1,
         type: 3}
-      propertyPath: enemyPlayer
-      value: 
-      objectReference: {fileID: 1658148292}
+      propertyPath: m_SortingLayerID
+      value: -2028187863
+      objectReference: {fileID: 0}
+    - target: {fileID: 3507182563747568045, guid: 8c2c6b7bb5ef1f448bbaac113345c2c1,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2c6b7bb5ef1f448bbaac113345c2c1, type: 3}
 --- !u!1001 &7175409019542337108
