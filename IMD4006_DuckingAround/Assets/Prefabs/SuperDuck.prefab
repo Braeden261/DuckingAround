@@ -119,8 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658304f1cbb11184799da781ef8635c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 15
   fallSpeed: 600
-  isHeld: 0
   isSuper: 1
-  lifespan: 4
+  lifespan: 5
+  value: 15
+  isHeld: 0
+  bestBefore: 1
+  spoilRate: 1

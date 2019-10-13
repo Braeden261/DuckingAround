@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class DuckBehaviour : MonoBehaviour
 {
-    //number of points a player will get
-    public int value;
-    //how fast the object falls
     public float fallSpeed;
-    //if the duck is beign held by a player
-    public bool isHeld;
-    //if the duck is super or not
     public bool isSuper;
-    //threshold to fall to
+    public int lifespan;
+    public int value;
+    public bool isHeld;
+    public int spoilRate;
+    public int bestBefore;
+
     private float floor;
-    public float lifespan;
-    private float life;
+    private int life;
 
 
     // Start is called before the first frame update
@@ -23,26 +21,35 @@ public class DuckBehaviour : MonoBehaviour
     {
         isHeld = false;
         life = lifespan;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if (isSuper)
             floor = -263f;
         else
             floor = -283f;
 
+        //method of reducing a duck's value over time until it despawns
+        InvokeRepeating("Spoil", 1, spoilRate);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (transform.position.y > floor && !isHeld)
         {
             transform.Translate(Vector3.down * Time.deltaTime * fallSpeed);
         }
-        
+    }
+
+    void Spoil()
+    {
         if (transform.position.y <= floor && !isHeld && life > 0)
         {
-            life -= Time.deltaTime;
+            life--;
+            if (!isSuper && life < bestBefore)
+            {
+                value--;
+            }
         }
-        if  (life <= 0)
+        if (life <= 0)
         {
             Destroy(this.gameObject);
         }

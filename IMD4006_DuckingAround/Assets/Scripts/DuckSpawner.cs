@@ -22,7 +22,6 @@ public class DuckSpawner : MonoBehaviour
     private int deltaThreshold;
     private GameObject[] allDucks;
 
-    // Start is called before the first frame update
     void Start()
     {
         timer = timeLimit;
@@ -35,7 +34,7 @@ public class DuckSpawner : MonoBehaviour
     {
         if (timer > 0)
         {
-            //increment timer
+            //decrement timer
             timer -= Time.deltaTime;
             timerText.text = "Duck Season Ends In: \n" + Mathf.Round(timer);
         }
@@ -81,7 +80,6 @@ public class DuckSpawner : MonoBehaviour
         //roll chance of spawning super duck
         randRoll = Random.Range(0, 100);
 
-        Debug.Log("Super Duck Chance: " + superDuckChance);
         //spawn a duck at random position based on which type of duck has been rolled
         if (randRoll <= superDuckChance)
         {

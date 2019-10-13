@@ -47,7 +47,7 @@ MonoBehaviour:
   superDuck: {fileID: 2129556329221383295, guid: 8ce45ce8db3e43e40af78fc36e4149d5,
     type: 3}
   spawnTime: 1
-  spawnDelay: 1
+  spawnDelay: 0.8
   haltDucks: 0
   luck: 16
   timeLimit: 120
