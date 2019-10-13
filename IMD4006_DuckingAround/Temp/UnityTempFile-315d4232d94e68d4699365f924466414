@@ -1,6 +1,6 @@
 /target:library
 /nowarn:0169
-/out:Temp/Unity.TextMeshPro.dll
+/out:Temp/Assembly-CSharp.dll
 /debug:portable
 /optimize-
 /nostdlib+
@@ -68,24 +68,19 @@
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.10f1\Editor\Data\Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.10f1\Editor\Data\Managed/UnityEditor.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.10f1\Editor\Data\Managed/Unity.Locator.dll"
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2018.4.10f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll"
-/reference:"D:/Advanced Gaming/DuckingAround/IMD4006_DuckingAround/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll"
 /reference:"D:/Advanced Gaming/DuckingAround/IMD4006_DuckingAround/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll"
 /reference:"D:/Advanced Gaming/DuckingAround/IMD4006_DuckingAround/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll"
 /reference:"D:/Advanced Gaming/DuckingAround/IMD4006_DuckingAround/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll"
-/reference:"D:/Advanced Gaming/DuckingAround/IMD4006_DuckingAround/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.10f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.10f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\Microsoft.Win32.Primitives.dll"
 /reference:"C:\Program Files\Unity\Hub\Editor\2018.4.10f1\Editor\Data\NetStandard\compat\2.0.0\shims\netstandard\System.AppContext.dll"
@@ -302,59 +297,7 @@
 /define:UNITY_TEAM_LICENSE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\AssemblyInfo.cs.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\FastAction.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\MaterialReferenceManager.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TextContainer.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TextMeshPro.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TextMeshProUGUI.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Asset.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Character.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_CharacterInfo.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ColorGradient.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_CoroutineTween.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_DefaultControls.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Dropdown.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_EditorResourceManager.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontAsset.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontAssetCommon.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontAssetUtilities.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontFeaturesCommon.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_FontFeatureTable.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_InputField.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_InputValidator.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_LineInfo.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ListPool.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_MaterialManager.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_MeshInfo.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ObjectPool.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_PackageResourceImporter.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_RichTextTagsCommon.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_RichTextTagStack.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ScrollbarEventHandler.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SelectionCaret.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Settings.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_ShaderUtilities.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Sprite.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteAnimator.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteAsset.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteAssetImportFormats.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteCharacter.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SpriteGlyph.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Style.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_StyleSheet.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SubMesh.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_SubMeshUI.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_Text.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextElement.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextElement_Legacy.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextInfo.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextParsingUtilities.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_TextUtilities.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_UpdateManager.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMP_UpdateRegistery.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_EventManager.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_ExtensionMethods.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_MeshUtilities.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_Private.cs"
-"D:\Advanced Gaming\DuckingAround\IMD4006_DuckingAround\Library\PackageCache\com.unity.textmeshpro@1.4.1\Scripts\Runtime\TMPro_UGUI_Private.cs"
+Assets\Scripts\BasketBehaviour.cs
+Assets\Scripts\DuckBehaviour.cs
+Assets\Scripts\DuckSpawner.cs
+Assets\Scripts\PlayerController.cs
