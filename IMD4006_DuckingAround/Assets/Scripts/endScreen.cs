@@ -9,23 +9,21 @@ public class endScreen : MonoBehaviour
     public Sprite P1Win;
     public Sprite P2Win;
     public Sprite Tie;
-    private BasketBehaviour[] baskets;
 
     // Start is called before the first frame update
     void Start()
     {
-        baskets = endScreen.FindObjectsOfType<BasketBehaviour>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (baskets[0].score > baskets[1].score)
+        if (PlayerPrefs.GetInt("p1Score") > PlayerPrefs.GetInt("p2Score"))
         {
             bgImage.GetComponent<SpriteRenderer>().sprite = P1Win;
         }
-        else if (baskets[0].score < baskets[1].score)
+        else if (PlayerPrefs.GetInt("p1Score") < PlayerPrefs.GetInt("p2Score"))
         {
             bgImage.GetComponent<SpriteRenderer>().sprite = P2Win;
 
