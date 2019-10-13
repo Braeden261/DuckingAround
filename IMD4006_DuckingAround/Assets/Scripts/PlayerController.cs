@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour
     public KeyCode action;
 
     private Rigidbody2D RB;
+    private SpriteRenderer SR;
 
     // Start is called before the first frame update
     void Start()
     {
         RB = GetComponent<Rigidbody2D>();
+        SR = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -32,10 +34,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(left))
         {
             RB.velocity = new Vector2(-playerSpeed, RB.velocity.y);
+            SR.flipX = true;
         }
         if (Input.GetKey(right))
         {
             RB.velocity = new Vector2(playerSpeed, RB.velocity.y);
+            SR.flipX = false;
         }
         if (!Input.GetKey(right) && !Input.GetKey(left))
         {
