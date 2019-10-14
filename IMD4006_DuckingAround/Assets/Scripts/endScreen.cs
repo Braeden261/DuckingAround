@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class endScreen : MonoBehaviour
 {
@@ -42,7 +43,16 @@ public class endScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
 
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("r"))
+        {
+
+            SceneManager.LoadScene(sceneName: "DuckingAroundScene");
+        }
 
 
     }

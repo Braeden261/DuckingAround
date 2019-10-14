@@ -65,6 +65,17 @@ public class DuckSpawner : MonoBehaviour
                 SceneManager.LoadScene(sceneName: "EndScreen");
             }
         }
+
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("r"))
+        {
+
+            SceneManager.LoadScene(sceneName: "DuckingAroundScene");
+        }
     }
 
     void SpawnDuck()
