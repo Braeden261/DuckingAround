@@ -21,11 +21,12 @@ public class PlayerController : MonoBehaviour
     private GameObject heldDuck = null;
 
     private float startTime = 0.0f;
-    private float holdTime = 2.0f;
+    private float holdTime = 1.0f;
     private float stunStartTime = 0.0f;
-    private float stunnedTime = 2.0f;
+    private float stunnedTime = 3.0f;
     private float cooldownStartTime = 0.0f;
     private bool stunned = false;
+    private bool barking = false;
 
     private Rigidbody2D RB;
     private SpriteRenderer SR;
@@ -47,39 +48,26 @@ public class PlayerController : MonoBehaviour
             if (stunStartTime + stunnedTime <= Time.time)
             {
                 stunned = false;
-                playerSpeed = 750;
+                playerSpeed = 0;
+                Debug.Log("Stunned");
             }
         }
 
         if (!stunned)
         {
-            //handling player movement on key press
-            if (Input.GetKey(left))
+            if (Input.GetKeyDown(left) && Input.GetKeyDown(right) && (Input.GetKey(action)))
             {
-                RB.velocity = new Vector2(-playerSpeed, RB.velocity.y);
-                AN.SetFloat("Speed", playerSpeed);
-                SR.flipX = true;
-            }
-            if (Input.GetKey(right))
-            {
+                playerSpeed = 0;
                 RB.velocity = new Vector2(playerSpeed, RB.velocity.y);
-                AN.SetFloat("Speed", playerSpeed);
-                SR.flipX = false;
-            }
-            if (!Input.GetKey(right) && !Input.GetKey(left))
-            {
-                RB.velocity = new Vector2(0, RB.velocity.y);
-                AN.SetFloat("Speed", 0);
-            }
-            if (Input.GetKeyDown(left) && Input.GetKeyDown(right))
-            {
                 startTime = Time.time;
             }
-
-            if ((Input.GetKey(left)) && (Input.GetKey(right)) && (cooldownStartTime + cooldownTime <= Time.time))
+            if ((Input.GetKeyUp(left) || Input.GetKeyUp(right)) && (Input.GetKeyUp(action)))
             {
-                RB.velocity = new Vector2(0, RB.velocity.y);
-                AN.SetFloat("Speed", 0);
+                playerSpeed = 750;
+            }
+            if ((Input.GetKey(left)) && (Input.GetKey(right)) && (Input.GetKey(action)) && (cooldownStartTime + cooldownTime <= Time.time))
+            {
+
                 if ((startTime + holdTime <= Time.time) && (numBarks > 0))
                 {
                     Debug.Log("Bark");
@@ -88,34 +76,60 @@ public class PlayerController : MonoBehaviour
                     cooldownStartTime = Time.time;
                 }
             }
-
-            if (Input.GetKeyDown(action))
+            else
             {
-                if (!isHoldingDuck)
+                //handling player movement on key press
+                if (Input.GetKey(left))
                 {
-                    AN.SetBool("Pickup", true);
-                    if (canPickup && grabbableDuck)
+                    RB.velocity = new Vector2(-playerSpeed, RB.velocity.y);
+                    AN.SetFloat("Speed", playerSpeed);
+                    SR.flipX = true;
+                }
+                if (Input.GetKey(right))
+                {
+                    RB.velocity = new Vector2(playerSpeed, RB.velocity.y);
+                    AN.SetFloat("Speed", playerSpeed);
+                    SR.flipX = false;
+                }
+                if (!Input.GetKey(right) && !Input.GetKey(left))
+                {
+                    RB.velocity = new Vector2(0, RB.velocity.y);
+                    AN.SetFloat("Speed", 0);
+                }
+                
+
+
+
+                if (Input.GetKeyDown(action))
+                {
+                    if (!isHoldingDuck)
                     {
-                        heldDuck = grabbableDuck;
-                        heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
-                        isHoldingDuck = true;
+                        AN.SetBool("Pickup", true);
+                        if (canPickup && grabbableDuck)
+                        {
+                            heldDuck = grabbableDuck;
+                            heldDuck.GetComponent<DuckBehaviour>().isHeld = true;
+                            isHoldingDuck = true;
+                        }
+                    }
+                    else if (isHoldingDuck)
+                    {
+                        isHoldingDuck = false;
+                        heldDuck.GetComponent<DuckBehaviour>().isHeld = false;
+                        //heldDuck = null;
                     }
                 }
-                else if (isHoldingDuck)
+
+                if (Input.GetKeyUp(action))
+                    AN.SetBool("Pickup", false);
+
+                if (isHoldingDuck)
                 {
-                    isHoldingDuck = false;
-                    heldDuck.GetComponent<DuckBehaviour>().isHeld = false;
-                    //heldDuck = null;
+                    heldDuck.transform.position = holdPoint.position;
                 }
             }
 
-            if (Input.GetKeyUp(action))
-                AN.SetBool("Pickup", false);
-
-            if (isHoldingDuck)
-            {
-                heldDuck.transform.position = holdPoint.position;
-            }
+            
 
             //ignore collision with other player
             Physics2D.IgnoreLayerCollision(8, 9);
