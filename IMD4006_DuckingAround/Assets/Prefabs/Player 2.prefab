@@ -176,7 +176,7 @@ MonoBehaviour:
   left: 106
   right: 108
   action: 107
-  playerSpeed: 750
+  playerSpeed: 700
   holdPoint: {fileID: 4711229531051052606}
   numBarks: 3
   cooldownTime: 5

@@ -27,6 +27,13 @@ public class DuckBehaviour : MonoBehaviour
 
         SR = GetComponent<SpriteRenderer>();
 
+        //randomize orientation
+        int flip = Random.Range(0, 2);
+        if (flip == 1)
+            SR.flipX = true;
+        else
+            SR.flipX = false;
+
         //method of reducing a duck's value over time until it despawns
         InvokeRepeating("Spoil", 1, spoilRate);
     }

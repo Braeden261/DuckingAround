@@ -30,7 +30,7 @@ public class DuckSpawner : MonoBehaviour
     {
         timer = timeLimit;
         superDuckChance = luck;
-        deltaThreshold = 50;
+        deltaThreshold = 55;
         InvokeRepeating("SpawnDuck", spawnTime, spawnDelay);
     }
 
@@ -52,8 +52,10 @@ public class DuckSpawner : MonoBehaviour
             CancelDucks();
         }
 
-        if (timer > 10)
+        //increase the chance of a super duck falling over time
+        if (timer > 9)
             superDuckChance = luck + ((1 / Mathf.Pow(timer / timeLimit, 2)) / 10);
+        Debug.Log("Chance of SuperDuck: " + superDuckChance);
 
         if (timer < 0) 
         {
@@ -81,7 +83,7 @@ public class DuckSpawner : MonoBehaviour
     void SpawnDuck()
     {
         //generate random lateral position for the new duck
-        randPos = new Vector3(Random.Range(-460, 460), 560, 0);
+        randPos = new Vector3(Random.Range(-500, 500), 560, 0);
         //get all the currently spawned ducks
         allDucks = GameObject.FindGameObjectsWithTag("Duck");
 
@@ -93,13 +95,16 @@ public class DuckSpawner : MonoBehaviour
             //check that the distance is outside of a threshold
             if (delta < deltaThreshold)
             {
-                //reroll a new position while the distance is within the threshold
-                while (delta < deltaThreshold)
+                //reroll a new position if the distance is within the threshold -- limit loops to the number of ducks there are
+                foreach (GameObject duck in allDucks)
                 {
-                    //new position
-                    randPos = new Vector3(Random.Range(-460, 460), 560, 0);
-                    //new delta to verify against
-                    delta = Vector3.Distance(randPos, allDucks[i].gameObject.transform.position);
+                    if (delta < deltaThreshold)
+                    {
+                        //new position
+                        randPos = new Vector3(Random.Range(-460, 460), 560, 0);
+                        //new delta to verify against
+                        delta = Vector3.Distance(randPos, allDucks[i].gameObject.transform.position);
+                    }
                 }
                 i = -1;
             }
