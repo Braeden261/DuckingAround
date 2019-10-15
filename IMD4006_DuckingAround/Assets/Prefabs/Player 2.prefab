@@ -176,11 +176,15 @@ MonoBehaviour:
   left: 106
   right: 108
   action: 107
+  barkFX: {fileID: 0}
   playerSpeed: 700
   holdPoint: {fileID: 4711229531051052606}
-  numBarks: 3
   cooldownTime: 5
   enemyPlayer: {fileID: 0}
+  numBarks: 3
+  barkIcons: []
+  barkPopup: {fileID: 4220684157067959963, guid: d827efaa08d82a0448a86abebf8923c8,
+    type: 3}
 --- !u!95 &95216757504457586
 Animator:
   serializedVersion: 3

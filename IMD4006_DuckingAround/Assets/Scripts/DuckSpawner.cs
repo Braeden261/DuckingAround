@@ -56,7 +56,6 @@ public class DuckSpawner : MonoBehaviour
         //increase the chance of a super duck falling over time
         if (timer > 9)
             superDuckChance = luck + ((1 / Mathf.Pow(timer / timeLimit, 2)) / 10);
-        Debug.Log("Chance of SuperDuck: " + superDuckChance);
 
         if (timer < 0) 
         {
