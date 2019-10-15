@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class DuckSpawner : MonoBehaviour
 {
+    public AudioSource pointFX;
     public GameObject duck;
     public GameObject superDuck;
     public GameObject timerText;

@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public KeyCode right;
     public KeyCode action;
 
+    public AudioSource barkFX;
+
     public float playerSpeed;
     public Transform holdPoint;
     public int numBarks = 3;
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
                 AN.SetFloat("Speed", 0);
                 if ((startTime + holdTime <= Time.time) && (numBarks > 0))
                 {
+                    barkFX.Play();
                     Debug.Log("Bark");
                     enemyPlayer.Stun();
                     numBarks--;

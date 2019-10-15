@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class BasketBehaviour : MonoBehaviour
 {
+
+    public AudioSource pointFX;
     public int score;
     public GameObject scoreText;
     public GameObject floatingTextPrefab;
@@ -32,6 +34,7 @@ public class BasketBehaviour : MonoBehaviour
     {
         if (!collision.gameObject.GetComponent<DuckBehaviour>().isHeld)
         {
+            pointFX.Play();
             score += collision.gameObject.GetComponent<DuckBehaviour>().value;
             floatingTextPrefab.GetComponent<TextMesh>().text = "+" + collision.gameObject.GetComponent<DuckBehaviour>().value;
             Instantiate(floatingTextPrefab, transform.position, Quaternion.identity, transform);
