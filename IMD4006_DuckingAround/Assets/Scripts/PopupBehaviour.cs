@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloatingText : MonoBehaviour
+public class PopupBehaviour : MonoBehaviour
 {
     public float lifeSpan;
-
     void Start()
     {
         Destroy(gameObject, lifeSpan);

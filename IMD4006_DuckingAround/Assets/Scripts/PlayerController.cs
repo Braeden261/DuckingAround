@@ -13,9 +13,11 @@ public class PlayerController : MonoBehaviour
 
     public float playerSpeed;
     public Transform holdPoint;
-    public int numBarks = 3;
     public float cooldownTime = 5.0f;
     public PlayerController enemyPlayer = null;
+    public int numBarks = 3;
+    public GameObject[] barkIcons;
+    public GameObject barkPopup;
 
     private bool isHoldingDuck;
     private bool canPickup;
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private GameObject heldDuck = null;
 
     private float startTime = 0.0f;
-    private float holdTime = 2.0f;
+    private float holdTime = 1.0f;
     private float stunStartTime = 0.0f;
     private float stunnedTime = 2.0f;
     private float cooldownStartTime = 0.0f;
@@ -84,8 +86,10 @@ public class PlayerController : MonoBehaviour
                 AN.SetFloat("Speed", 0);
                 if ((startTime + holdTime <= Time.time) && (numBarks > 0))
                 {
+                    Instantiate(barkPopup, holdPoint.transform.position, Quaternion.identity);
+                    Destroy(barkIcons[numBarks - 1].gameObject);
                     barkFX.Play();
-                    Debug.Log("Bark");
+                    //Debug.Log("Bark");
                     enemyPlayer.Stun();
                     numBarks--;
                     cooldownStartTime = Time.time;
@@ -116,9 +120,9 @@ public class PlayerController : MonoBehaviour
                 AN.SetBool("Pickup", false);
 
             if (isHoldingDuck)
-            {
                 heldDuck.transform.position = holdPoint.position;
-            }
+
+            barkPopup.transform.position = holdPoint.transform.position;
 
             //ignore collision with other player
             Physics2D.IgnoreLayerCollision(8, 9);
