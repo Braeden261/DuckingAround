@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private GameObject grabbableDuck = null;
     private GameObject heldDuck = null;
 
+    private float barkStartTime = 0.0f;
+    private float barkTime = 2.0f;
     private float startTime = 0.0f;
     private float holdTime = 1.0f;
     private float stunStartTime = 0.0f;
@@ -54,6 +56,12 @@ public class PlayerController : MonoBehaviour
                 playerSpeed = 750;
             }
         }
+
+        if (barkStartTime + barkTime <= Time.time)
+        {
+            barkPopup.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+        }
+
 
         if (!stunned)
         {
@@ -86,7 +94,8 @@ public class PlayerController : MonoBehaviour
                 AN.SetFloat("Speed", 0);
                 if ((startTime + holdTime <= Time.time) && (numBarks > 0))
                 {
-                    Instantiate(barkPopup, holdPoint.transform.position, Quaternion.identity);
+                    barkStartTime = Time.time;
+                    barkPopup.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
                     Destroy(barkIcons[numBarks - 1].gameObject);
                     barkFX.Play();
                     //Debug.Log("Bark");
